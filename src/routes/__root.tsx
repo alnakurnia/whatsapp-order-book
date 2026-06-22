@@ -80,10 +80,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "WhatsApp Order Book — Kelola Order WhatsApp Tanpa Berantakan | DigiOps.id" },
       { name: "description", content: "Ubah chat WhatsApp jadi order yang rapi. WhatsApp Order Book dari DigiOps.id bantu UMKM Indonesia kelola pesanan, status, dan rekap harian otomatis." },
       { name: "author", content: "DigiOps.id" },
-      { property: "og:title", content: "WhatsApp Order Book — Kelola Order WhatsApp Tanpa Berantakan" },
-      { property: "og:description", content: "Software sederhana untuk UMKM Indonesia: order tidak hilang, status jelas, rekap otomatis." },
+      { property: "og:title", content: "WhatsApp Order Book — Kelola Order WhatsApp Tanpa Berantakan | DigiOps.id" },
+      { property: "og:description", content: "Ubah chat WhatsApp jadi order yang rapi. WhatsApp Order Book dari DigiOps.id bantu UMKM Indonesia kelola pesanan, status, dan rekap harian otomatis." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "WhatsApp Order Book — Kelola Order WhatsApp Tanpa Berantakan | DigiOps.id" },
+      { name: "twitter:description", content: "Ubah chat WhatsApp jadi order yang rapi. WhatsApp Order Book dari DigiOps.id bantu UMKM Indonesia kelola pesanan, status, dan rekap harian otomatis." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c9afc03e-8dc4-4822-b34a-8b71bbbdcda1/id-preview-7206c9c9--4fa2c17d-4042-4af3-83bc-83dc2cf372cb.lovable.app-1781689101711.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c9afc03e-8dc4-4822-b34a-8b71bbbdcda1/id-preview-7206c9c9--4fa2c17d-4042-4af3-83bc-83dc2cf372cb.lovable.app-1781689101711.png" },
     ],
     links: [
       {
