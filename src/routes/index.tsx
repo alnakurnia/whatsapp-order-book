@@ -228,19 +228,13 @@ function Hero() {
   ];
   return (
     <section id="home" className="relative overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full brand-soft-bg blur-3xl opacity-70"
-      />
+      <div aria-hidden className="absolute inset-x-0 top-0 h-px ink-bg/10" />
       <Container className="grid items-center gap-12 py-16 lg:grid-cols-2 lg:py-24">
         <div className="animate-fade-in">
           <SectionLabel>Dari DigiOps.id</SectionLabel>
-          <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            Order WhatsApp Masih{" "}
-            <span className="relative inline-block">
-              <span className="relative z-10">Berantakan?</span>
-              <span className="absolute inset-x-0 bottom-1 z-0 h-3 brand-soft-bg" />
-            </span>
+          <h1 className="mt-6 text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+            Order WhatsApp <br className="hidden sm:block" />
+            <span className="brand-text">Tanpa Berantakan.</span>
           </h1>
           <p className="mt-5 max-w-xl text-lg muted-ink-text leading-relaxed">
             WhatsApp Order Book membantu UMKM mengubah chat WhatsApp menjadi order
@@ -270,8 +264,7 @@ function Hero() {
         </div>
 
         <div className="relative">
-          <div className="absolute -inset-4 rounded-md brand-soft-bg/60 blur-2xl" aria-hidden />
-          <div className="relative rounded-md bg-white p-3 shadow-card border border-black/5">
+          <div className="relative rounded-sm bg-white p-2 border rule-border">
             <img
               src={heroImg}
               alt="UMKM owner kewalahan dengan chat WhatsApp order yang berantakan"
@@ -289,7 +282,7 @@ function Hero() {
 
 function FloatingOrderCard() {
   return (
-    <div className="absolute -bottom-6 -left-4 hidden sm:block rounded-md bg-white p-4 shadow-card border border-black/5 animate-fade-in">
+    <div className="absolute -bottom-6 -left-4 hidden sm:block rounded-sm bg-white p-4 border-2 ink-bg/0 border-[color:var(--ink)]">
       <div className="flex items-center gap-3">
         <span className="grid h-10 w-10 place-items-center rounded-sm brand-bg text-white">
           <Check className="h-5 w-5" strokeWidth={3} />
@@ -494,8 +487,8 @@ function QuickCaptureVisual() {
   return (
     <MockBar>
       <div className="grid gap-3 sm:grid-cols-2">
-        <div className="rounded-sm bg-[#DCF8C6] p-3 text-xs leading-relaxed">
-          <div className="font-semibold text-[#075E54] mb-1">Bu Siti</div>
+        <div className="rounded-sm surface-alt-bg border rule-border p-3 text-xs leading-relaxed">
+          <div className="font-semibold ink-text mb-1">Bu Siti · WhatsApp</div>
           Halo kak, mau pesen 2 box brownies, dikirim Sabtu ya. Alamat: Jl. Melati 12. Bayar transfer.
           <div className="text-right text-[10px] muted-ink-text mt-1">10:24 ✓✓</div>
         </div>
