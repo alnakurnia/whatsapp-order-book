@@ -113,8 +113,7 @@ function Container({ children, className = "" }: { children: React.ReactNode; cl
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full brand-soft-bg brand-text px-3 py-1 text-xs font-semibold tracking-wide uppercase">
-      <Sparkles className="h-3.5 w-3.5" />
+    <span className="inline-flex items-center gap-2 border-l-2 brand-border pl-3 py-0.5 text-xs font-bold tracking-[0.18em] uppercase brand-text">
       {children}
     </span>
   );
@@ -132,13 +131,13 @@ function BrandButton({
   className?: string;
 }) {
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.99]";
+    "inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold transition-colors duration-150";
   const styles =
     variant === "primary"
-      ? "brand-bg text-white shadow-soft hover:brightness-95"
+      ? "ink-bg text-white hover:bg-[color:var(--brand-hover)]"
       : variant === "secondary"
-        ? "bg-white text-[color:var(--ink)] border border-black/10 hover:bg-black/5"
-        : "text-[color:var(--ink)] hover:bg-black/5";
+        ? "bg-white ink-text border rule-border hover:surface-alt-bg"
+        : "ink-text hover:surface-alt-bg";
   return (
     <a href={href} className={`${base} ${styles} ${className}`}>
       {children}
@@ -149,10 +148,10 @@ function BrandButton({
 function Logo() {
   return (
     <a href="#home" className="flex items-center gap-2">
-      <span className="grid h-9 w-9 place-items-center rounded-sm brand-bg text-white font-bold">
+      <span className="grid h-8 w-8 place-items-center ink-bg text-white font-black text-sm">
         D
       </span>
-      <span className="text-lg font-extrabold tracking-tight">
+      <span className="text-base font-bold tracking-tight">
         DigiOps<span className="brand-text">.id</span>
       </span>
     </a>
