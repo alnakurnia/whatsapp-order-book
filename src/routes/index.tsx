@@ -28,7 +28,6 @@ import {
   Menu,
   X,
   Star,
-  Sparkles,
 } from "lucide-react";
 import heroImg from "@/assets/hero-illustration.jpg";
 import happyOwnerImg from "@/assets/happy-owner.jpg";
