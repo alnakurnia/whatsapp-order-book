@@ -149,10 +149,10 @@ function BrandButton({
 function Logo() {
   return (
     <a href="#home" className="flex items-center gap-2">
-      <span className="grid h-9 w-9 place-items-center rounded-xl brand-bg text-white font-bold">
+      <span className="grid h-9 w-9 place-items-center rounded-sm brand-bg text-white font-bold">
         D
       </span>
-      <span className="font-[Poppins] text-lg font-extrabold tracking-tight">
+      <span className="text-lg font-extrabold tracking-tight">
         DigiOps<span className="brand-text">.id</span>
       </span>
     </a>
@@ -271,14 +271,14 @@ function Hero() {
         </div>
 
         <div className="relative">
-          <div className="absolute -inset-4 rounded-[2.5rem] brand-soft-bg/60 blur-2xl" aria-hidden />
-          <div className="relative rounded-[2rem] bg-white p-3 shadow-card border border-black/5">
+          <div className="absolute -inset-4 rounded-md brand-soft-bg/60 blur-2xl" aria-hidden />
+          <div className="relative rounded-md bg-white p-3 shadow-card border border-black/5">
             <img
               src={heroImg}
               alt="UMKM owner kewalahan dengan chat WhatsApp order yang berantakan"
               width={1280}
               height={1024}
-              className="rounded-[1.5rem] w-full h-auto"
+              className="rounded-sm w-full h-auto"
             />
           </div>
           <FloatingOrderCard />
@@ -290,9 +290,9 @@ function Hero() {
 
 function FloatingOrderCard() {
   return (
-    <div className="absolute -bottom-6 -left-4 hidden sm:block rounded-2xl bg-white p-4 shadow-card border border-black/5 animate-fade-in">
+    <div className="absolute -bottom-6 -left-4 hidden sm:block rounded-md bg-white p-4 shadow-card border border-black/5 animate-fade-in">
       <div className="flex items-center gap-3">
-        <span className="grid h-10 w-10 place-items-center rounded-xl brand-bg text-white">
+        <span className="grid h-10 w-10 place-items-center rounded-sm brand-bg text-white">
           <Check className="h-5 w-5" strokeWidth={3} />
         </span>
         <div>
@@ -332,16 +332,16 @@ function Problems() {
               width={1024}
               height={800}
               loading="lazy"
-              className="mt-8 rounded-2xl w-full h-auto shadow-soft"
+              className="mt-8 rounded-md w-full h-auto shadow-soft"
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {items.map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="group rounded-2xl border border-black/5 bg-white p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card"
+                className="group rounded-md border border-black/5 bg-white p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card"
               >
-                <div className="grid h-11 w-11 place-items-center rounded-xl brand-soft-bg brand-text">
+                <div className="grid h-11 w-11 place-items-center rounded-sm brand-soft-bg brand-text">
                   <Icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-4 text-base font-bold">{title}</h3>
@@ -374,7 +374,7 @@ function WhyUs() {
               width={1024}
               height={1024}
               loading="lazy"
-              className="w-full h-auto rounded-3xl"
+              className="w-full h-auto rounded-md"
             />
           </div>
           <div className="order-1 lg:order-2">
@@ -389,9 +389,9 @@ function WhyUs() {
               {items.map((it, i) => (
                 <div
                   key={it.title}
-                  className="flex gap-4 rounded-2xl bg-white p-5 border border-black/5 shadow-soft"
+                  className="flex gap-4 rounded-md bg-white p-5 border border-black/5 shadow-soft"
                 >
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl brand-bg text-white font-bold">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-sm brand-bg text-white font-bold">
                     {i + 1}
                   </span>
                   <div>
@@ -454,7 +454,7 @@ function Features() {
               }`}
             >
               <div>
-                <span className="inline-grid h-12 w-12 place-items-center rounded-2xl brand-soft-bg brand-text">
+                <span className="inline-grid h-12 w-12 place-items-center rounded-md brand-soft-bg brand-text">
                   <Icon className="h-6 w-6" />
                 </span>
                 <h3 className="mt-5 text-2xl sm:text-3xl font-extrabold">{title}</h3>
@@ -466,7 +466,7 @@ function Features() {
                   Coba fitur ini <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
-              <div className="rounded-3xl bg-white p-3 border border-black/5 shadow-card">
+              <div className="rounded-md bg-white p-3 border border-black/5 shadow-card">
                 {visual}
               </div>
             </div>
@@ -479,7 +479,7 @@ function Features() {
 
 function MockBar({ children }: { children: React.ReactNode }) {
   return (
-    <div className="rounded-2xl overflow-hidden bg-white">
+    <div className="rounded-md overflow-hidden bg-white">
       <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-black/5">
         <span className="h-2.5 w-2.5 rounded-full bg-red-300" />
         <span className="h-2.5 w-2.5 rounded-full bg-yellow-300" />
@@ -495,12 +495,12 @@ function QuickCaptureVisual() {
   return (
     <MockBar>
       <div className="grid gap-3 sm:grid-cols-2">
-        <div className="rounded-xl bg-[#DCF8C6] p-3 text-xs leading-relaxed">
+        <div className="rounded-sm bg-[#DCF8C6] p-3 text-xs leading-relaxed">
           <div className="font-semibold text-[#075E54] mb-1">Bu Siti</div>
           Halo kak, mau pesen 2 box brownies, dikirim Sabtu ya. Alamat: Jl. Melati 12. Bayar transfer.
           <div className="text-right text-[10px] muted-ink-text mt-1">10:24 ✓✓</div>
         </div>
-        <div className="rounded-xl bg-white border border-black/5 p-3 text-xs">
+        <div className="rounded-sm bg-white border border-black/5 p-3 text-xs">
           <div className="font-bold mb-2">Order #ORD-129</div>
           <div className="grid grid-cols-3 gap-1">
             <span className="muted-ink-text">Customer</span><span className="col-span-2 font-medium">Bu Siti</span>
@@ -527,7 +527,7 @@ function KanbanVisual() {
     <MockBar>
       <div className="grid grid-cols-3 gap-2">
         {cols.map((c) => (
-          <div key={c.label} className="rounded-xl bg-white border border-black/5 p-2">
+          <div key={c.label} className="rounded-sm bg-white border border-black/5 p-2">
             <div className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-bold ${c.color}`}>
               {c.label}
             </div>
@@ -556,13 +556,13 @@ function SummaryVisual() {
       <div className="text-xs font-semibold mb-3">📊 Ringkasan Hari Ini</div>
       <div className="grid grid-cols-3 gap-2">
         {stats.map((s) => (
-          <div key={s.l} className="rounded-xl bg-white border border-black/5 p-3">
+          <div key={s.l} className="rounded-sm bg-white border border-black/5 p-3">
             <div className="text-[10px] muted-ink-text">{s.l}</div>
             <div className="text-lg font-extrabold">{s.v}</div>
           </div>
         ))}
       </div>
-      <div className="mt-3 rounded-xl bg-white border border-black/5 p-3">
+      <div className="mt-3 rounded-sm bg-white border border-black/5 p-3">
         <div className="flex items-end gap-1.5 h-16">
           {[40, 65, 50, 80, 70, 90, 60].map((h, i) => (
             <div key={i} className="flex-1 brand-bg/80 rounded-t-md" style={{ height: `${h}%`, backgroundColor: "var(--brand)" }} />
@@ -581,7 +581,7 @@ function CustomerVisual() {
   ];
   return (
     <MockBar>
-      <div className="rounded-xl bg-white border border-black/5">
+      <div className="rounded-sm bg-white border border-black/5">
         <div className="grid grid-cols-3 px-3 py-2 text-[10px] font-bold muted-ink-text border-b border-black/5">
           <span>NAMA</span><span>ORDER</span><span>TOTAL</span>
         </div>
@@ -621,8 +621,8 @@ function HowItWorks() {
         <div className="mt-14 grid gap-6 md:grid-cols-4 relative">
           <div aria-hidden className="hidden md:block absolute top-7 left-[12%] right-[12%] h-0.5 brand-bg/30" style={{ backgroundColor: "var(--brand-soft)" }} />
           {steps.map((s) => (
-            <div key={s.n} className="relative rounded-2xl bg-white border border-black/5 p-6 shadow-soft text-center">
-              <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl brand-bg text-white text-xl font-extrabold shadow-soft">
+            <div key={s.n} className="relative rounded-md bg-white border border-black/5 p-6 shadow-soft text-center">
+              <div className="mx-auto grid h-14 w-14 place-items-center rounded-md brand-bg text-white text-xl font-extrabold shadow-soft">
                 {s.n}
               </div>
               <h3 className="mt-4 font-bold">{s.t}</h3>
@@ -654,7 +654,7 @@ function AppGallery() {
         </div>
         <div className="mt-14 grid gap-6 md:grid-cols-2">
           {screens.map((s) => (
-            <figure key={s.t} className="group rounded-3xl bg-white p-4 border border-black/5 shadow-soft transition hover:-translate-y-1 hover:shadow-card">
+            <figure key={s.t} className="group rounded-md bg-white p-4 border border-black/5 shadow-soft transition hover:-translate-y-1 hover:shadow-card">
               {s.visual}
               <figcaption className="mt-4 px-2 flex items-center justify-between">
                 <span className="font-bold">{s.t}</span>
@@ -688,7 +688,7 @@ function Benefits() {
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {metrics.map((m) => (
-                <div key={m.l} className="rounded-2xl bg-white p-6 border border-black/5 shadow-soft">
+                <div key={m.l} className="rounded-md bg-white p-6 border border-black/5 shadow-soft">
                   <div className="text-4xl font-extrabold brand-text">{m.v}</div>
                   <div className="mt-2 font-bold">{m.l}</div>
                   <p className="mt-1 text-sm muted-ink-text">{m.d}</p>
@@ -702,7 +702,7 @@ function Benefits() {
             width={1024}
             height={1024}
             loading="lazy"
-            className="w-full h-auto rounded-3xl"
+            className="w-full h-auto rounded-md"
           />
         </div>
       </Container>
@@ -730,8 +730,8 @@ function Audience() {
         </div>
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {items.map(({ icon: Icon, t, d }) => (
-            <div key={t} className="rounded-2xl bg-white p-6 border border-black/5 shadow-soft hover:-translate-y-1 hover:shadow-card transition-all">
-              <div className="grid h-12 w-12 place-items-center rounded-2xl brand-soft-bg brand-text">
+            <div key={t} className="rounded-md bg-white p-6 border border-black/5 shadow-soft hover:-translate-y-1 hover:shadow-card transition-all">
+              <div className="grid h-12 w-12 place-items-center rounded-md brand-soft-bg brand-text">
                 <Icon className="h-6 w-6" />
               </div>
               <h3 className="mt-4 font-bold">{t}</h3>
@@ -760,19 +760,19 @@ function CaseStudies() {
         </div>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {cases.map((c) => (
-            <div key={c.biz} className="rounded-3xl bg-white p-6 border border-black/5 shadow-soft">
+            <div key={c.biz} className="rounded-md bg-white p-6 border border-black/5 shadow-soft">
               <div className="inline-flex items-center gap-1.5 rounded-full brand-soft-bg brand-text px-3 py-1 text-xs font-bold">
                 {c.biz}
               </div>
               <div className="mt-6 grid gap-4">
-                <div className="rounded-2xl bg-red-50 p-4">
+                <div className="rounded-md bg-red-50 p-4">
                   <div className="text-[10px] font-bold uppercase tracking-wider text-red-700">Before</div>
                   <p className="mt-1 text-sm font-medium">{c.before}</p>
                 </div>
                 <div className="grid place-items-center">
                   <ArrowRight className="h-5 w-5 muted-ink-text rotate-90" />
                 </div>
-                <div className="rounded-2xl brand-soft-bg p-4">
+                <div className="rounded-md brand-soft-bg p-4">
                   <div className="text-[10px] font-bold uppercase tracking-wider brand-text">After</div>
                   <p className="mt-1 text-sm font-medium">{c.after}</p>
                 </div>
@@ -813,7 +813,7 @@ function Testimonials() {
         </div>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {items.map((t) => (
-            <figure key={t.name} className="rounded-3xl bg-white p-6 border border-black/5 shadow-soft">
+            <figure key={t.name} className="rounded-md bg-white p-6 border border-black/5 shadow-soft">
               <div className="flex gap-0.5 brand-text">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-current" />
@@ -877,7 +877,7 @@ function Pricing() {
           {plans.map((p) => (
             <div
               key={p.name}
-              className={`relative rounded-3xl p-7 border shadow-soft transition-all hover:-translate-y-1 ${
+              className={`relative rounded-md p-7 border shadow-soft transition-all hover:-translate-y-1 ${
                 p.featured
                   ? "bg-[color:var(--ink)] text-white border-transparent shadow-card"
                   : "bg-white border-black/5"
@@ -961,7 +961,7 @@ function FAQ() {
             <AccordionItem
               key={i}
               value={`item-${i}`}
-              className="rounded-2xl border border-black/5 bg-white px-5 shadow-soft"
+              className="rounded-md border border-black/5 bg-white px-5 shadow-soft"
             >
               <AccordionTrigger className="text-left font-bold hover:no-underline">
                 {it.q}
@@ -982,7 +982,7 @@ function FinalCTA() {
   return (
     <section className="py-20">
       <Container>
-        <div className="relative overflow-hidden rounded-[2.5rem] brand-bg text-white p-10 sm:p-16 shadow-card">
+        <div className="relative overflow-hidden rounded-md brand-bg text-white p-10 sm:p-16 shadow-card">
           <div aria-hidden className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
           <div aria-hidden className="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-black/10 blur-3xl" />
           <div className="relative grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-center">
@@ -1016,7 +1016,7 @@ function FinalCTA() {
                 width={1024}
                 height={1024}
                 loading="lazy"
-                className="w-full h-auto rounded-3xl bg-white/10"
+                className="w-full h-auto rounded-md bg-white/10"
               />
             </div>
           </div>
