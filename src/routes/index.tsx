@@ -511,9 +511,9 @@ function QuickCaptureVisual() {
 
 function KanbanVisual() {
   const cols = [
-    { label: "NEW", color: "bg-amber-100 text-amber-800", items: ["Brownies x2", "Risoles x10"] },
-    { label: "PROCESS", color: "bg-blue-100 text-blue-800", items: ["Nasi Box x5"] },
-    { label: "DONE", color: "brand-soft-bg brand-text", items: ["Kue Ultah", "Catering"] },
+    { label: "NEW", color: "bg-[#2563EB] text-white", items: ["Brownies x2", "Risoles x10"] },
+    { label: "PROCESS", color: "bg-[#D97706] text-white", items: ["Nasi Box x5"] },
+    { label: "DONE", color: "bg-[#059669] text-white", items: ["Kue Ultah", "Catering"] },
   ];
   return (
     <MockBar>
@@ -897,10 +897,10 @@ function Pricing() {
               </ul>
               <a
                 href={WA_LINK}
-                className={`mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all hover:scale-[1.01] ${
+                className={`mt-7 inline-flex w-full items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-bold transition-colors ${
                   p.featured
-                    ? "brand-bg text-white shadow-soft"
-                    : "bg-[color:var(--ink)] text-white"
+                    ? "bg-white text-[color:var(--ink)] hover:surface-alt-bg"
+                    : "ink-bg text-white hover:bg-[color:var(--brand-hover)]"
                 }`}
               >
                 {p.cta} <ArrowRight className="h-4 w-4" />
@@ -974,9 +974,7 @@ function FinalCTA() {
   return (
     <section className="py-20">
       <Container>
-        <div className="relative overflow-hidden rounded-md brand-bg text-white p-10 sm:p-16 shadow-card">
-          <div aria-hidden className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
-          <div aria-hidden className="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-black/10 blur-3xl" />
+        <div className="relative overflow-hidden rounded-sm ink-bg text-white p-10 sm:p-16 border-t-4 brand-border">
           <div className="relative grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-center">
             <div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
@@ -989,13 +987,13 @@ function FinalCTA() {
               <div className="mt-7 flex flex-wrap gap-3">
                 <a
                   href="#harga"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-[color:var(--ink)] px-6 py-3 text-sm font-bold transition hover:scale-[1.02]"
+                  className="inline-flex items-center justify-center gap-2 rounded-sm brand-bg text-white px-6 py-3 text-sm font-bold transition-colors hover:bg-[color:var(--brand-hover)]"
                 >
                   Mulai Gratis Sekarang <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
                   href={WA_LINK}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 text-white border border-white/30 px-6 py-3 text-sm font-bold transition hover:bg-white/20"
+                  className="inline-flex items-center justify-center gap-2 rounded-sm bg-transparent text-white border border-white/40 px-6 py-3 text-sm font-bold transition hover:bg-white/10"
                 >
                   Hubungi Tim DigiOps.id
                 </a>
@@ -1068,7 +1066,7 @@ function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat WhatsApp"
-      className="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full brand-bg text-white shadow-card hover:scale-110 transition-all"
+      className="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-sm ink-bg text-white hover:bg-[color:var(--brand-hover)] transition-colors"
     >
       <svg viewBox="0 0 24 24" fill="currentColor" className="h-7 w-7">
         <path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.88 11.9L4 20l4.2-1.1a7.93 7.93 0 0 0 3.84.98h.01a7.93 7.93 0 0 0 7.93-7.93 7.88 7.88 0 0 0-2.38-5.63ZM12.05 18.5h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.59 6.59 0 1 1 12.25-3.48 6.6 6.6 0 0 1-6.65 6.57Zm3.62-4.94c-.2-.1-1.18-.58-1.36-.65-.18-.07-.31-.1-.45.1-.13.2-.51.65-.63.78-.11.13-.23.15-.43.05-.2-.1-.84-.31-1.6-.99-.6-.53-1-1.18-1.12-1.38-.12-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.45-1.09-.62-1.49-.16-.39-.33-.34-.45-.34h-.39c-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66 0 .98.72 1.93.82 2.06.1.13 1.42 2.17 3.43 3.04.48.21.85.33 1.15.42.48.15.92.13 1.27.08.39-.06 1.18-.48 1.35-.95.17-.47.17-.87.12-.95-.05-.08-.18-.13-.38-.23Z" />
