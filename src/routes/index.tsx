@@ -28,7 +28,6 @@ import {
   Menu,
   X,
   Star,
-  Sparkles,
 } from "lucide-react";
 import heroImg from "@/assets/hero-illustration.jpg";
 import happyOwnerImg from "@/assets/happy-owner.jpg";
@@ -113,8 +112,7 @@ function Container({ children, className = "" }: { children: React.ReactNode; cl
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full brand-soft-bg brand-text px-3 py-1 text-xs font-semibold tracking-wide uppercase">
-      <Sparkles className="h-3.5 w-3.5" />
+    <span className="inline-flex items-center gap-2 border-l-2 brand-border pl-3 py-0.5 text-xs font-bold tracking-[0.18em] uppercase brand-text">
       {children}
     </span>
   );
@@ -132,13 +130,13 @@ function BrandButton({
   className?: string;
 }) {
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.99]";
+    "inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold transition-colors duration-150";
   const styles =
     variant === "primary"
-      ? "brand-bg text-white shadow-soft hover:brightness-95"
+      ? "ink-bg text-white hover:bg-[color:var(--brand-hover)]"
       : variant === "secondary"
-        ? "bg-white text-[color:var(--ink)] border border-black/10 hover:bg-black/5"
-        : "text-[color:var(--ink)] hover:bg-black/5";
+        ? "bg-white ink-text border rule-border hover:surface-alt-bg"
+        : "ink-text hover:surface-alt-bg";
   return (
     <a href={href} className={`${base} ${styles} ${className}`}>
       {children}
@@ -149,10 +147,10 @@ function BrandButton({
 function Logo() {
   return (
     <a href="#home" className="flex items-center gap-2">
-      <span className="grid h-9 w-9 place-items-center rounded-xl brand-bg text-white font-bold">
+      <span className="grid h-8 w-8 place-items-center ink-bg text-white font-black text-sm">
         D
       </span>
-      <span className="font-[Poppins] text-lg font-extrabold tracking-tight">
+      <span className="text-base font-bold tracking-tight">
         DigiOps<span className="brand-text">.id</span>
       </span>
     </a>
@@ -229,19 +227,13 @@ function Hero() {
   ];
   return (
     <section id="home" className="relative overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full brand-soft-bg blur-3xl opacity-70"
-      />
+      <div aria-hidden className="absolute inset-x-0 top-0 h-px ink-bg/10" />
       <Container className="grid items-center gap-12 py-16 lg:grid-cols-2 lg:py-24">
         <div className="animate-fade-in">
           <SectionLabel>Dari DigiOps.id</SectionLabel>
-          <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            Order WhatsApp Masih{" "}
-            <span className="relative inline-block">
-              <span className="relative z-10">Berantakan?</span>
-              <span className="absolute inset-x-0 bottom-1 z-0 h-3 brand-soft-bg" />
-            </span>
+          <h1 className="mt-6 text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+            Order WhatsApp <br className="hidden sm:block" />
+            <span className="brand-text">Tanpa Berantakan.</span>
           </h1>
           <p className="mt-5 max-w-xl text-lg muted-ink-text leading-relaxed">
             WhatsApp Order Book membantu UMKM mengubah chat WhatsApp menjadi order
@@ -271,14 +263,13 @@ function Hero() {
         </div>
 
         <div className="relative">
-          <div className="absolute -inset-4 rounded-[2.5rem] brand-soft-bg/60 blur-2xl" aria-hidden />
-          <div className="relative rounded-[2rem] bg-white p-3 shadow-card border border-black/5">
+          <div className="relative rounded-sm bg-white p-2 border rule-border">
             <img
               src={heroImg}
               alt="UMKM owner kewalahan dengan chat WhatsApp order yang berantakan"
               width={1280}
               height={1024}
-              className="rounded-[1.5rem] w-full h-auto"
+              className="rounded-sm w-full h-auto"
             />
           </div>
           <FloatingOrderCard />
@@ -290,9 +281,9 @@ function Hero() {
 
 function FloatingOrderCard() {
   return (
-    <div className="absolute -bottom-6 -left-4 hidden sm:block rounded-2xl bg-white p-4 shadow-card border border-black/5 animate-fade-in">
+    <div className="absolute -bottom-6 -left-4 hidden sm:block rounded-sm bg-white p-4 border-2 ink-bg/0 border-[color:var(--ink)]">
       <div className="flex items-center gap-3">
-        <span className="grid h-10 w-10 place-items-center rounded-xl brand-bg text-white">
+        <span className="grid h-10 w-10 place-items-center rounded-sm brand-bg text-white">
           <Check className="h-5 w-5" strokeWidth={3} />
         </span>
         <div>
@@ -332,16 +323,16 @@ function Problems() {
               width={1024}
               height={800}
               loading="lazy"
-              className="mt-8 rounded-2xl w-full h-auto shadow-soft"
+              className="mt-8 rounded-md w-full h-auto shadow-soft"
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {items.map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="group rounded-2xl border border-black/5 bg-white p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card"
+                className="group rounded-md border border-black/5 bg-white p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card"
               >
-                <div className="grid h-11 w-11 place-items-center rounded-xl brand-soft-bg brand-text">
+                <div className="grid h-11 w-11 place-items-center rounded-sm brand-soft-bg brand-text">
                   <Icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-4 text-base font-bold">{title}</h3>
@@ -374,7 +365,7 @@ function WhyUs() {
               width={1024}
               height={1024}
               loading="lazy"
-              className="w-full h-auto rounded-3xl"
+              className="w-full h-auto rounded-md"
             />
           </div>
           <div className="order-1 lg:order-2">
@@ -389,9 +380,9 @@ function WhyUs() {
               {items.map((it, i) => (
                 <div
                   key={it.title}
-                  className="flex gap-4 rounded-2xl bg-white p-5 border border-black/5 shadow-soft"
+                  className="flex gap-4 rounded-md bg-white p-5 border border-black/5 shadow-soft"
                 >
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl brand-bg text-white font-bold">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-sm brand-bg text-white font-bold">
                     {i + 1}
                   </span>
                   <div>
@@ -454,7 +445,7 @@ function Features() {
               }`}
             >
               <div>
-                <span className="inline-grid h-12 w-12 place-items-center rounded-2xl brand-soft-bg brand-text">
+                <span className="inline-grid h-12 w-12 place-items-center rounded-md brand-soft-bg brand-text">
                   <Icon className="h-6 w-6" />
                 </span>
                 <h3 className="mt-5 text-2xl sm:text-3xl font-extrabold">{title}</h3>
@@ -466,7 +457,7 @@ function Features() {
                   Coba fitur ini <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
-              <div className="rounded-3xl bg-white p-3 border border-black/5 shadow-card">
+              <div className="rounded-md bg-white p-3 border border-black/5 shadow-card">
                 {visual}
               </div>
             </div>
@@ -479,7 +470,7 @@ function Features() {
 
 function MockBar({ children }: { children: React.ReactNode }) {
   return (
-    <div className="rounded-2xl overflow-hidden bg-white">
+    <div className="rounded-md overflow-hidden bg-white">
       <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-black/5">
         <span className="h-2.5 w-2.5 rounded-full bg-red-300" />
         <span className="h-2.5 w-2.5 rounded-full bg-yellow-300" />
@@ -495,12 +486,12 @@ function QuickCaptureVisual() {
   return (
     <MockBar>
       <div className="grid gap-3 sm:grid-cols-2">
-        <div className="rounded-xl bg-[#DCF8C6] p-3 text-xs leading-relaxed">
-          <div className="font-semibold text-[#075E54] mb-1">Bu Siti</div>
+        <div className="rounded-sm surface-alt-bg border rule-border p-3 text-xs leading-relaxed">
+          <div className="font-semibold ink-text mb-1">Bu Siti · WhatsApp</div>
           Halo kak, mau pesen 2 box brownies, dikirim Sabtu ya. Alamat: Jl. Melati 12. Bayar transfer.
           <div className="text-right text-[10px] muted-ink-text mt-1">10:24 ✓✓</div>
         </div>
-        <div className="rounded-xl bg-white border border-black/5 p-3 text-xs">
+        <div className="rounded-sm bg-white border border-black/5 p-3 text-xs">
           <div className="font-bold mb-2">Order #ORD-129</div>
           <div className="grid grid-cols-3 gap-1">
             <span className="muted-ink-text">Customer</span><span className="col-span-2 font-medium">Bu Siti</span>
@@ -519,15 +510,15 @@ function QuickCaptureVisual() {
 
 function KanbanVisual() {
   const cols = [
-    { label: "NEW", color: "bg-amber-100 text-amber-800", items: ["Brownies x2", "Risoles x10"] },
-    { label: "PROCESS", color: "bg-blue-100 text-blue-800", items: ["Nasi Box x5"] },
-    { label: "DONE", color: "brand-soft-bg brand-text", items: ["Kue Ultah", "Catering"] },
+    { label: "NEW", color: "bg-[#2563EB] text-white", items: ["Brownies x2", "Risoles x10"] },
+    { label: "PROCESS", color: "bg-[#D97706] text-white", items: ["Nasi Box x5"] },
+    { label: "DONE", color: "bg-[#059669] text-white", items: ["Kue Ultah", "Catering"] },
   ];
   return (
     <MockBar>
       <div className="grid grid-cols-3 gap-2">
         {cols.map((c) => (
-          <div key={c.label} className="rounded-xl bg-white border border-black/5 p-2">
+          <div key={c.label} className="rounded-sm bg-white border border-black/5 p-2">
             <div className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-bold ${c.color}`}>
               {c.label}
             </div>
@@ -556,13 +547,13 @@ function SummaryVisual() {
       <div className="text-xs font-semibold mb-3">📊 Ringkasan Hari Ini</div>
       <div className="grid grid-cols-3 gap-2">
         {stats.map((s) => (
-          <div key={s.l} className="rounded-xl bg-white border border-black/5 p-3">
+          <div key={s.l} className="rounded-sm bg-white border border-black/5 p-3">
             <div className="text-[10px] muted-ink-text">{s.l}</div>
             <div className="text-lg font-extrabold">{s.v}</div>
           </div>
         ))}
       </div>
-      <div className="mt-3 rounded-xl bg-white border border-black/5 p-3">
+      <div className="mt-3 rounded-sm bg-white border border-black/5 p-3">
         <div className="flex items-end gap-1.5 h-16">
           {[40, 65, 50, 80, 70, 90, 60].map((h, i) => (
             <div key={i} className="flex-1 brand-bg/80 rounded-t-md" style={{ height: `${h}%`, backgroundColor: "var(--brand)" }} />
@@ -581,7 +572,7 @@ function CustomerVisual() {
   ];
   return (
     <MockBar>
-      <div className="rounded-xl bg-white border border-black/5">
+      <div className="rounded-sm bg-white border border-black/5">
         <div className="grid grid-cols-3 px-3 py-2 text-[10px] font-bold muted-ink-text border-b border-black/5">
           <span>NAMA</span><span>ORDER</span><span>TOTAL</span>
         </div>
@@ -621,8 +612,8 @@ function HowItWorks() {
         <div className="mt-14 grid gap-6 md:grid-cols-4 relative">
           <div aria-hidden className="hidden md:block absolute top-7 left-[12%] right-[12%] h-0.5 brand-bg/30" style={{ backgroundColor: "var(--brand-soft)" }} />
           {steps.map((s) => (
-            <div key={s.n} className="relative rounded-2xl bg-white border border-black/5 p-6 shadow-soft text-center">
-              <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl brand-bg text-white text-xl font-extrabold shadow-soft">
+            <div key={s.n} className="relative rounded-md bg-white border border-black/5 p-6 shadow-soft text-center">
+              <div className="mx-auto grid h-14 w-14 place-items-center rounded-md brand-bg text-white text-xl font-extrabold shadow-soft">
                 {s.n}
               </div>
               <h3 className="mt-4 font-bold">{s.t}</h3>
@@ -654,7 +645,7 @@ function AppGallery() {
         </div>
         <div className="mt-14 grid gap-6 md:grid-cols-2">
           {screens.map((s) => (
-            <figure key={s.t} className="group rounded-3xl bg-white p-4 border border-black/5 shadow-soft transition hover:-translate-y-1 hover:shadow-card">
+            <figure key={s.t} className="group rounded-md bg-white p-4 border border-black/5 shadow-soft transition hover:-translate-y-1 hover:shadow-card">
               {s.visual}
               <figcaption className="mt-4 px-2 flex items-center justify-between">
                 <span className="font-bold">{s.t}</span>
@@ -688,7 +679,7 @@ function Benefits() {
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {metrics.map((m) => (
-                <div key={m.l} className="rounded-2xl bg-white p-6 border border-black/5 shadow-soft">
+                <div key={m.l} className="rounded-md bg-white p-6 border border-black/5 shadow-soft">
                   <div className="text-4xl font-extrabold brand-text">{m.v}</div>
                   <div className="mt-2 font-bold">{m.l}</div>
                   <p className="mt-1 text-sm muted-ink-text">{m.d}</p>
@@ -702,7 +693,7 @@ function Benefits() {
             width={1024}
             height={1024}
             loading="lazy"
-            className="w-full h-auto rounded-3xl"
+            className="w-full h-auto rounded-md"
           />
         </div>
       </Container>
@@ -730,8 +721,8 @@ function Audience() {
         </div>
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {items.map(({ icon: Icon, t, d }) => (
-            <div key={t} className="rounded-2xl bg-white p-6 border border-black/5 shadow-soft hover:-translate-y-1 hover:shadow-card transition-all">
-              <div className="grid h-12 w-12 place-items-center rounded-2xl brand-soft-bg brand-text">
+            <div key={t} className="rounded-md bg-white p-6 border border-black/5 shadow-soft hover:-translate-y-1 hover:shadow-card transition-all">
+              <div className="grid h-12 w-12 place-items-center rounded-md brand-soft-bg brand-text">
                 <Icon className="h-6 w-6" />
               </div>
               <h3 className="mt-4 font-bold">{t}</h3>
@@ -760,19 +751,19 @@ function CaseStudies() {
         </div>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {cases.map((c) => (
-            <div key={c.biz} className="rounded-3xl bg-white p-6 border border-black/5 shadow-soft">
+            <div key={c.biz} className="rounded-md bg-white p-6 border border-black/5 shadow-soft">
               <div className="inline-flex items-center gap-1.5 rounded-full brand-soft-bg brand-text px-3 py-1 text-xs font-bold">
                 {c.biz}
               </div>
               <div className="mt-6 grid gap-4">
-                <div className="rounded-2xl bg-red-50 p-4">
+                <div className="rounded-md bg-red-50 p-4">
                   <div className="text-[10px] font-bold uppercase tracking-wider text-red-700">Before</div>
                   <p className="mt-1 text-sm font-medium">{c.before}</p>
                 </div>
                 <div className="grid place-items-center">
                   <ArrowRight className="h-5 w-5 muted-ink-text rotate-90" />
                 </div>
-                <div className="rounded-2xl brand-soft-bg p-4">
+                <div className="rounded-md brand-soft-bg p-4">
                   <div className="text-[10px] font-bold uppercase tracking-wider brand-text">After</div>
                   <p className="mt-1 text-sm font-medium">{c.after}</p>
                 </div>
@@ -813,7 +804,7 @@ function Testimonials() {
         </div>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {items.map((t) => (
-            <figure key={t.name} className="rounded-3xl bg-white p-6 border border-black/5 shadow-soft">
+            <figure key={t.name} className="rounded-md bg-white p-6 border border-black/5 shadow-soft">
               <div className="flex gap-0.5 brand-text">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-current" />
@@ -877,7 +868,7 @@ function Pricing() {
           {plans.map((p) => (
             <div
               key={p.name}
-              className={`relative rounded-3xl p-7 border shadow-soft transition-all hover:-translate-y-1 ${
+              className={`relative rounded-md p-7 border shadow-soft transition-all hover:-translate-y-1 ${
                 p.featured
                   ? "bg-[color:var(--ink)] text-white border-transparent shadow-card"
                   : "bg-white border-black/5"
@@ -905,10 +896,10 @@ function Pricing() {
               </ul>
               <a
                 href={WA_LINK}
-                className={`mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all hover:scale-[1.01] ${
+                className={`mt-7 inline-flex w-full items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-bold transition-colors ${
                   p.featured
-                    ? "brand-bg text-white shadow-soft"
-                    : "bg-[color:var(--ink)] text-white"
+                    ? "bg-white text-[color:var(--ink)] hover:surface-alt-bg"
+                    : "ink-bg text-white hover:bg-[color:var(--brand-hover)]"
                 }`}
               >
                 {p.cta} <ArrowRight className="h-4 w-4" />
@@ -961,7 +952,7 @@ function FAQ() {
             <AccordionItem
               key={i}
               value={`item-${i}`}
-              className="rounded-2xl border border-black/5 bg-white px-5 shadow-soft"
+              className="rounded-md border border-black/5 bg-white px-5 shadow-soft"
             >
               <AccordionTrigger className="text-left font-bold hover:no-underline">
                 {it.q}
@@ -982,9 +973,7 @@ function FinalCTA() {
   return (
     <section className="py-20">
       <Container>
-        <div className="relative overflow-hidden rounded-[2.5rem] brand-bg text-white p-10 sm:p-16 shadow-card">
-          <div aria-hidden className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
-          <div aria-hidden className="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-black/10 blur-3xl" />
+        <div className="relative overflow-hidden rounded-sm ink-bg text-white p-10 sm:p-16 border-t-4 brand-border">
           <div className="relative grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-center">
             <div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
@@ -997,13 +986,13 @@ function FinalCTA() {
               <div className="mt-7 flex flex-wrap gap-3">
                 <a
                   href="#harga"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-[color:var(--ink)] px-6 py-3 text-sm font-bold transition hover:scale-[1.02]"
+                  className="inline-flex items-center justify-center gap-2 rounded-sm brand-bg text-white px-6 py-3 text-sm font-bold transition-colors hover:bg-[color:var(--brand-hover)]"
                 >
                   Mulai Gratis Sekarang <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
                   href={WA_LINK}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 text-white border border-white/30 px-6 py-3 text-sm font-bold transition hover:bg-white/20"
+                  className="inline-flex items-center justify-center gap-2 rounded-sm bg-transparent text-white border border-white/40 px-6 py-3 text-sm font-bold transition hover:bg-white/10"
                 >
                   Hubungi Tim DigiOps.id
                 </a>
@@ -1016,7 +1005,7 @@ function FinalCTA() {
                 width={1024}
                 height={1024}
                 loading="lazy"
-                className="w-full h-auto rounded-3xl bg-white/10"
+                className="w-full h-auto rounded-md bg-white/10"
               />
             </div>
           </div>
@@ -1076,7 +1065,7 @@ function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat WhatsApp"
-      className="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-full brand-bg text-white shadow-card hover:scale-110 transition-all"
+      className="fixed bottom-5 right-5 z-50 grid h-14 w-14 place-items-center rounded-sm ink-bg text-white hover:bg-[color:var(--brand-hover)] transition-colors"
     >
       <svg viewBox="0 0 24 24" fill="currentColor" className="h-7 w-7">
         <path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.88 11.9L4 20l4.2-1.1a7.93 7.93 0 0 0 3.84.98h.01a7.93 7.93 0 0 0 7.93-7.93 7.88 7.88 0 0 0-2.38-5.63ZM12.05 18.5h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.59 6.59 0 1 1 12.25-3.48 6.6 6.6 0 0 1-6.65 6.57Zm3.62-4.94c-.2-.1-1.18-.58-1.36-.65-.18-.07-.31-.1-.45.1-.13.2-.51.65-.63.78-.11.13-.23.15-.43.05-.2-.1-.84-.31-1.6-.99-.6-.53-1-1.18-1.12-1.38-.12-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.45-1.09-.62-1.49-.16-.39-.33-.34-.45-.34h-.39c-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66 0 .98.72 1.93.82 2.06.1.13 1.42 2.17 3.43 3.04.48.21.85.33 1.15.42.48.15.92.13 1.27.08.39-.06 1.18-.48 1.35-.95.17-.47.17-.87.12-.95-.05-.08-.18-.13-.38-.23Z" />

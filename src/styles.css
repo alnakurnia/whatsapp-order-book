@@ -62,17 +62,18 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.25rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
-  /* DigiOps brand */
-  --brand: oklch(0.74 0.20 145);
-  --brand-foreground: oklch(1 0 0);
-  --brand-hover: oklch(0.66 0.18 145);
-  --brand-soft: oklch(0.965 0.05 145);
-  --ink: oklch(0.18 0.01 0);
-  --muted-ink: oklch(0.45 0.01 0);
-  --surface-alt: oklch(0.985 0.005 145);
+  /* DigiOps — Swiss / International Style */
+  --brand: #2563EB;            /* primary blue */
+  --brand-foreground: #FFFFFF;
+  --brand-hover: #1D4ED8;
+  --brand-soft: #EFF4FF;       /* tinted surface for badges */
+  --ink: #111111;              /* primary text & primary button */
+  --muted-ink: #64748B;        /* secondary text */
+  --surface-alt: #FAFAFA;      /* card / section background */
+  --rule: #E5E7EB;             /* hairline border */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
@@ -142,20 +143,22 @@
 
 @layer base {
   * {
-    border-color: var(--color-border);
+    border-color: var(--rule);
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: "Inter", "Nunito", system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
+    font-feature-settings: "ss01", "cv11";
   }
 
   h1, h2, h3, h4 {
-    font-family: "Poppins", "Inter", sans-serif;
-    letter-spacing: -0.01em;
+    font-family: "Inter", system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    font-weight: 700;
   }
 }
 
@@ -164,12 +167,14 @@
 @utility brand-border { border-color: var(--brand); }
 @utility brand-soft-bg { background-color: var(--brand-soft); }
 @utility ink-text { color: var(--ink); }
+@utility ink-bg { background-color: var(--ink); }
 @utility muted-ink-text { color: var(--muted-ink); }
 @utility surface-alt-bg { background-color: var(--surface-alt); }
+@utility rule-border { border-color: var(--rule); }
 
 @utility shadow-soft {
-  box-shadow: 0 4px 24px -8px rgba(0,0,0,0.08), 0 2px 6px -2px rgba(0,0,0,0.04);
+  box-shadow: none;
 }
 @utility shadow-card {
-  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 32px -12px rgba(0,0,0,0.08);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
 }
